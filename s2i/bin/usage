@@ -1,12 +1,22 @@
 #!/bin/bash -e
 cat <<EOF
-This is the s2i-compliance-prometheus-exporter S2I image:
-To use it, install S2I: https://github.com/openshift/source-to-image
+This is the s2i-insights-compliance S2I image:
+You should not run this image on its own, but use it as a base
+s2i image for all Insights compliance-related apps.
+
+First, install S2I: https://github.com/openshift/source-to-image
 
 Sample invocation:
 
-s2i build <source code path/URL> s2i-compliance-prometheus-exporter <application image>
+s2i build /home/dlobatog/workspace/compliance-backend s2i-insights-compliance <application image>
+
+This will create an image with the source from compliance-backend, and the
+tools in s2i/bin located on /usr/libexec/s2i.
 
 You can then run the resulting image via:
-docker run <application image>
+docker run -e APPLICATION_TYPE=prometheus-exporter -p 127.0.0.1:9394:9394 <application image>
+or
+docker run -e APPLICATION_TYPE=consumer <application image>
+or
+docker run -e APPLICATION_TYPE=backend -p 127.0.0.1:8080:8080 <application image>
 EOF
