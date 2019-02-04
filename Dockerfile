@@ -13,9 +13,11 @@ LABEL io.k8s.description="Aggregator of all prometheus metrics for compliance" \
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="builder,prometheus_exporter,compliance"
 
-# Install rubygems and clean cache to make the image leaner
+# Install dependencies and clean cache to make the image cleaner
 USER root
-RUN yum install -y epel-release openscap qt5-qtwebkit-devel && yum clean all -y
+RUN yum install -y epel-release && \
+    yum install -y openscap qt5-qtwebkit-devel && \
+    yum clean all -y
 USER 1001
 
 # Copy the S2I scripts to /usr/libexec/s2i, since openshift/base-centos7 image
