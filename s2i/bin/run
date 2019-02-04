@@ -22,7 +22,7 @@ function check_number() {
 	fi
 }
 
-if [ "$APPLICATION_TYPE" = "backend" ]; then
+if [ "$APPLICATION_TYPE" = "compliance-backend" ]; then
 	check_number PUMA_WORKERS     "${PUMA_WORKERS:-0}"
 	check_number PUMA_MIN_THREADS "${PUMA_MIN_THREADS:-0}"
 	check_number PUMA_MAX_THREADS "${PUMA_MAX_THREADS:-0}"
@@ -47,8 +47,8 @@ if [ "$APPLICATION_TYPE" = "backend" ]; then
 			echo "       Add rack to your Gemfile in order to start the web server."
 		fi
 	fi
-elif [ "$APPLICATION_TYPE" = "consumer" ]; then
+elif [ "$APPLICATION_TYPE" = "compliance-consumer" ]; then
 	bundle exec racecar ComplianceReportsConsumer
-elif [ "$APPLICATION_TYPE" = "prometheus-exporter" ]; then
+elif [ "$APPLICATION_TYPE" = "compliance-prometheus-exporter" ]; then
 	bundle exec prometheus_exporter -c lib/graphql_collector.rb
 fi
