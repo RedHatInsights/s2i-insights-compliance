@@ -1,4 +1,4 @@
-IMAGE_NAME = s2i-compliance-prometheus-exporter
+IMAGE_NAME = s2i-insights-compliance
 
 .PHONY: build
 build:
