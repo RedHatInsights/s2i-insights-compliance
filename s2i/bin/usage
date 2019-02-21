@@ -18,5 +18,7 @@ docker run -e APPLICATION_TYPE=prometheus-exporter -p 127.0.0.1:9394:9394 <appli
 or
 docker run -e APPLICATION_TYPE=consumer <application image>
 or
+docker run -e APPLICATION_TYPE=sidekiq <application image>
+or
 docker run -e APPLICATION_TYPE=backend -p 127.0.0.1:8080:8080 <application image>
 EOF
