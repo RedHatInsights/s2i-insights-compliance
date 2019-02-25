@@ -49,7 +49,7 @@ if [ "$APPLICATION_TYPE" = "compliance-backend" ]; then
 	fi
 elif [ "$APPLICATION_TYPE" = "compliance-consumer" ]; then
 	bundle exec racecar ComplianceReportsConsumer
-elif [ "$APPLICATION_TYPE" = "sidekiq" ]; then
+elif [ "$APPLICATION_TYPE" = "compliance-sidekiq" ]; then
 	bundle exec sidekiq
 elif [ "$APPLICATION_TYPE" = "compliance-prometheus-exporter" ]; then
 	bundle exec prometheus_exporter -c lib/graphql_collector.rb --prefix compliance_
