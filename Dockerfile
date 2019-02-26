@@ -16,7 +16,8 @@ LABEL io.k8s.description="Base image for Red Hat Insights Compliance" \
 # Install dependencies and clean cache to make the image cleaner
 USER root
 RUN yum install -y epel-release && \
-    yum install -y openscap qt5-qtwebkit-devel && \
+    yum install -y openscap-utils openscap qt5-qtwebkit-devel atomic docker \
+		   docker-registry device-mapper-libs device-mapper-event-libs && \
     yum clean all -y
 USER 1001
 
