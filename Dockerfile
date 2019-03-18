@@ -1,5 +1,5 @@
 # s2i-insights-compliance
-FROM centos/ruby-25-centos7
+FROM registry.access.redhat.com/rhscl/ruby-25-rhel7
 
 LABEL maintainer="Daniel Lobato Garcia <dlobatog@redhat.com>"
 
