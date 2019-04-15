@@ -25,6 +25,11 @@ RUN curl --fail -sSLo /etc/yum.repos.d/passenger.repo https://oss-binaries.phusi
 RUN yum install -y passenger || yum-config-manager --enable cr && yum install -y passenger && \
     yum clean all -y
 RUN /usr/bin/passenger-config validate-install
+# Passenger relies on getpwuid - this doesn't work on Openshift as Openshift
+# assigns a random UID for every new pod. Instead, we can preload this library
+# to mitigate the problem
+RUN curl https://raw.githubusercontent.com/appuio/libmapuid/master/lib/libmapuid.so -o /usr/local/lib/libmapuid.so && \
+    chmod 755 /usr/local/lib/libmapuid.so
 
 USER 1001
 
