@@ -18,8 +18,6 @@ USER root
 RUN yum install -y yum-utils
 RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 RUN yum-config-manager --enable epel
-RUN yum-config-manager --enable rhel-7-server-optional-rpms
-RUN yum-config-manager --enable rhel-7-server-extras-rpms
 RUN yum install -y openscap qt5-qtwebkit-devel jemalloc pygpgme curl
 RUN curl --fail -sSLo /etc/yum.repos.d/passenger.repo https://oss-binaries.phusionpassenger.com/yum/definitions/el-passenger.repo
 RUN yum install -y passenger || yum-config-manager --enable cr && yum install -y passenger && \
