@@ -15,15 +15,9 @@ LABEL io.k8s.description="Base image for Red Hat Insights Compliance" \
 
 # Install dependencies and clean cache to make the image cleaner
 USER root
-RUN yum install -y yum-utils
-RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-RUN yum-config-manager --enable epel
-RUN yum install -y openscap qt5-qtwebkit-devel jemalloc pygpgme curl
-RUN curl --fail -sSLo /etc/yum.repos.d/passenger.repo https://oss-binaries.phusionpassenger.com/yum/definitions/el-passenger.repo
-RUN yum install -y passenger || yum-config-manager --enable cr && yum install -y passenger && \
+RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
+    yum install -y openscap qt5-qtwebkit-devel jemalloc && \
     yum clean all -y
-RUN /usr/bin/passenger-config validate-install
-
 USER 1001
 
 # Copy the S2I scripts to /usr/libexec/s2i, since openshift/base-centos7 image
