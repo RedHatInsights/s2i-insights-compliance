@@ -52,5 +52,5 @@ elif [ "$APPLICATION_TYPE" = "compliance-consumer" ]; then
 elif [ "$APPLICATION_TYPE" = "compliance-sidekiq" ]; then
 	exec bundle exec sidekiq
 elif [ "$APPLICATION_TYPE" = "compliance-prometheus-exporter" ]; then
-	exec bundle exec prometheus_exporter -c lib/graphql_collector.rb --prefix compliance_
+	exec bundle exec prometheus_exporter -a lib/graphql_collector.rb --prefix compliance_
 fi
