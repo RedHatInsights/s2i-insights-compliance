@@ -16,7 +16,7 @@ LABEL io.k8s.description="Base image for Red Hat Insights Compliance" \
 # Install dependencies and clean cache to make the image cleaner
 USER root
 RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
-    yum install -y openscap qt5-qtwebkit-devel jemalloc && \
+    yum install -y openscap qt5-qtwebkit-devel jemalloc hostname && \
     yum clean all -y
 USER 1001
 
