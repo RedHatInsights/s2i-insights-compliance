@@ -1,5 +1,5 @@
 # s2i-insights-compliance
-FROM registry.redhat.io/ubi8/ruby-26
+FROM registry.access.redhat.com/ubi8/ruby-26
 
 LABEL maintainer="Daniel Lobato Garcia <dlobatog@redhat.com>"
 
