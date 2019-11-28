@@ -58,5 +58,5 @@ elif [ "$APPLICATION_TYPE" = "compliance-prometheus-exporter" ]; then
 elif [ "$APPLICATION_TYPE" = "compliance-import-remediations" ]; then
 	exec bundle exec rake import_remediations
 elif [ "$APPLICATION_TYPE" = "compliance-import-ssg" ]; then
-	exec bundle exec rake ssg:sync && find scap-security-guide*/ssg-rhel*-ds.xml | xargs -I{} rake ssg:import DATASTREAM_FILE='{}'
+	exec /usr/libexec/s2i/import_datastream
 fi

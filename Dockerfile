@@ -1,5 +1,5 @@
 # s2i-insights-compliance
-FROM registry.access.redhat.com/rhscl/ruby-25-rhel7
+FROM registry.redhat.io/ubi8/ruby-26
 
 LABEL maintainer="Daniel Lobato Garcia <dlobatog@redhat.com>"
 
@@ -15,8 +15,8 @@ LABEL io.k8s.description="Base image for Red Hat Insights Compliance" \
 
 # Install dependencies and clean cache to make the image cleaner
 USER root
-RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
-    yum install -y openscap qt5-qtwebkit-devel jemalloc hostname && \
+RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
+    yum install -y jemalloc hostname && \
     yum clean all -y
 USER 1001
 
