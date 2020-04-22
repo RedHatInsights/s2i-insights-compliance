@@ -1,2 +1,0 @@
-#!/bin/bash -e
-bundle exec rake ssg:sync && find scap-security-guide*/ssg-rhel*-ds.xml | xargs -I{} rake ssg:import DATASTREAM_FILE='{}'

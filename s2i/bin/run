@@ -1,6 +1,6 @@
 #!/bin/bash -e
 #
-# S2I run script for the 'compliance-prometheus-exporter' image.
+# S2I run script for the 's2i-insights-compliance' image.
 # The run script executes the server that runs your application.
 #
 # For more information see the documentation:
@@ -58,5 +58,7 @@ elif [ "$APPLICATION_TYPE" = "compliance-prometheus-exporter" ]; then
 elif [ "$APPLICATION_TYPE" = "compliance-import-remediations" ]; then
 	exec bundle exec rake import_remediations
 elif [ "$APPLICATION_TYPE" = "compliance-import-ssg" ]; then
-	exec /usr/libexec/s2i/import_datastream
+	exec bundle exec rake ssg:import_rhel_supported
+elif [ "$APPLICATION_TYPE" = "compliance-inventory-sync" ]; then
+	exec bundle exec rake sync_with_inventory
 fi
