@@ -61,4 +61,6 @@ elif [ "$APPLICATION_TYPE" = "compliance-import-ssg" ]; then
 	exec bundle exec rake ssg:import_rhel_supported
 elif [ "$APPLICATION_TYPE" = "compliance-inventory-sync" ]; then
 	exec bundle exec rake sync_with_inventory
+elif [ "$APPLICATION_TYPE" = "compliance-migrate-db" ]; then
+	exec bundle exec rake db:create db:migrate
 fi
