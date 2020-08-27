@@ -56,11 +56,11 @@ elif [ "$APPLICATION_TYPE" = "compliance-sidekiq" ]; then
 elif [ "$APPLICATION_TYPE" = "compliance-prometheus-exporter" ]; then
 	exec bundle exec prometheus_exporter -b 0.0.0.0 --prefix compliance_ -t 50 --verbose -a lib/prometheus/graphql_collector.rb -a lib/prometheus/business_collector.rb
 elif [ "$APPLICATION_TYPE" = "compliance-import-remediations" ]; then
-	exec bundle exec rake import_remediations
+	exec bundle exec rake import_remediations --trace
 elif [ "$APPLICATION_TYPE" = "compliance-import-ssg" ]; then
-	exec bundle exec rake ssg:import_rhel_supported
+	exec bundle exec rake ssg:import_rhel_supported --trace
 elif [ "$APPLICATION_TYPE" = "compliance-inventory-sync" ]; then
-	exec bundle exec rake sync_with_inventory
+	exec bundle exec rake sync_with_inventory --trace
 elif [ "$APPLICATION_TYPE" = "compliance-import-host-os-releases" ]; then
-	exec bundle exec rake import_host_os_releases
+	exec bundle exec rake import_host_os_releases --trace
 fi
