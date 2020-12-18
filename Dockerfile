@@ -1,7 +1,7 @@
 # s2i-insights-compliance
 FROM registry.access.redhat.com/ubi8/ruby-26
 
-LABEL maintainer="Daniel Lobato Garcia <dlobatog@redhat.com>"
+LABEL maintainer="Insights Compliance <insights-dev@redhat.com>"
 
 # TODO: Rename the builder environment variable to inform users about application you provide them
 ENV INSIGHTS_COMPLIANCE 0.4.2
