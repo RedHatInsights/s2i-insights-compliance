@@ -16,7 +16,7 @@ LABEL io.k8s.description="Base image for Red Hat Insights Compliance" \
 # Install dependencies and clean cache to make the image cleaner
 USER root
 RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
-    yum install -y hostname && \
+    yum install -y hostname postgresql && \
     yum clean all -y
 RUN mkdir /jemalloc-stable && cd /jemalloc-stable &&\
     wget https://github.com/jemalloc/jemalloc/releases/download/3.6.0/jemalloc-3.6.0.tar.bz2 &&\
