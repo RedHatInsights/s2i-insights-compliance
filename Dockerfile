@@ -1,4 +1,5 @@
 # s2i-insights-compliance
+# Rebuild: 2021-02-23
 FROM registry.access.redhat.com/ubi8/ruby-26
 
 LABEL maintainer="Insights Compliance <insights-dev@redhat.com>"
