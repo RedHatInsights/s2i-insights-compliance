@@ -18,7 +18,8 @@ LABEL io.k8s.description="Base image for Red Hat Insights Compliance" \
 USER root
 RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && \
     yum install -y hostname shared-mime-info && \
-    yum clean all -y
+    yum clean all -y && \
+    gem update --system --install-dir=/usr/share/gems
 USER 1001
 
 # Copy the S2I scripts to /usr/libexec/s2i, since openshift/base-centos7 image
