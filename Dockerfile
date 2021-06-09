@@ -2,10 +2,10 @@
 # Rebuild: 2021-02-23
 FROM registry.access.redhat.com/ubi8/ruby-27
 
-LABEL maintainer="Insights Compliance <insights-dev@redhat.com>"
+# Update release-date on changes or rebuids
+LABEL maintainer="Insights Compliance <insights-dev@redhat.com>" \
+      com.redhat.cloud.compliance.s2i.release-date="2021-01-12"
 
-# TODO: Rename the builder environment variable to inform users about application you provide them
-ENV INSIGHTS_COMPLIANCE 0.4.2
 ENV RAILS_ENV=production RAILS_LOG_TO_STDOUT=true
 
 # TODO: Set labels used in OpenShift to describe the builder image
